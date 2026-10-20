@@ -1,0 +1,271 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* DISTRIBUCIÓN GENERAL (CSS GRID) */
+body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "sidebar main"
+        "footer footer";
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+/* TIPOGRAFÍA GENERAL */
+h1, h2, h3 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #143B5D;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 17px;
+}
+
+p {
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+/* ENLACES */
+a {
+    color: #167D8D;
+}
+
+a:hover {
+    color: #143B5D;
+}
+
+a:active {
+    color: #0d2a3d;
+}
+
+/* LISTAS DE NAVEGACIÓN */
+.nav-superior ul,
+.sidebar ul {
+    list-style: none;
+}
+
+/* IMÁGENES */
+img {
+    max-width: 100%;
+}
+
+/* HEADER */
+.header {
+    grid-area: header;
+    background-color: #EEF4F6;
+    text-align: center;
+    padding: 20px;
+}
+
+.header .logo {
+    width: 60px;
+    height: 60px;
+}
+
+/* NAV SUPERIOR */
+.nav-superior {
+    grid-area: nav;
+    background-color: #143B5D;
+    text-align: center;
+    padding: 10px;
+}
+
+.nav-superior a {
+    color: #ffffff;
+}
+
+.nav-superior a:hover {
+    color: #EEF4F6;
+}
+
+/* SIDEBAR */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #EEF4F6;
+    padding: 20px 15px;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #167D8D;
+    padding-bottom: 8px;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a:hover {
+    color: #143B5D;
+    font-weight: bold;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido {
+    grid-area: main;
+    padding: 20px;
+}
+
+.contenido section {
+    margin-bottom: 25px;
+}
+
+/* BANNERS */
+.banner img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+}
+
+/* CUADRÍCULA DE TARJETAS DE MATERIAS */
+.materias-disponibles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* TARJETAS */
+.tarjeta {
+    background-color: #EEF4F6;
+    border: 1px solid #167D8D;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 6px #c7c7c7;
+    min-width: 0;
+}
+
+.tarjeta:hover {
+    background-color: #ffffff;
+    box-shadow: 4px 4px 10px #a8a8a8;
+}
+
+.tarjeta img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* TEMAS Y RECURSOS */
+.tema {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #EEF4F6;
+}
+
+.lista-recursos {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.lista-recursos li {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lista-recursos img {
+    width: 20px;
+    height: 20px;
+}
+
+.referencias {
+    font-size: 12px;
+    color: #4a4a4a;
+    margin-top: 4px;
+}
+
+/* FORMULARIO DE CONTACTO */
+.campo-formulario {
+    margin-bottom: 15px;
+}
+
+.campo-formulario label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #167D8D;
+    border-radius: 4px;
+}
+
+.formulario-contacto button {
+    background-color: #167D8D;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.formulario-contacto button:hover {
+    background-color: #143B5D;
+}
+
+/* FOOTER */
+.footer {
+    grid-area: footer;
+    background-color: #143B5D;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+}
+
+.footer a {
+    color: #EEF4F6;
+}
+
+/* RESPONSIVO: TABLETA */
+@media (max-width: 768px) {
+    .materias-disponibles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* RESPONSIVO: TELÉFONO */
+@media (max-width: 480px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "nav"
+            "sidebar"
+            "main"
+            "footer";
+    }
+
+    .materias-disponibles {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-superior ul {
+        display: flex;
+        flex-direction: column;
+    }
+}
